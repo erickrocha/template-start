@@ -1,60 +1,81 @@
 import React, { Component } from "react";
-import Wrapper from "../Wrapper/wrapper";
 import "./Layout.scss";
+import { NavLink } from "react-router-dom";
 
 export default class Layout extends Component {
+  state = {
+    collapsed: false
+  }
+
+  handlerToogleSidebar = () => {
+    this.setState({
+      collapsed : !this.state.collapsed
+    })
+  };
+
   render() {
+    let styles;
+    if (this.state.collapsed){
+       styles = "d-flex toggled";
+    }else {
+      styles = "d-flex";
+    }
+
     return (
-      <Wrapper>
+      <div class={styles} id="wrapper">
         <div className="bg-light border-right" id="sidebar-wrapper">
           <div className="sidebar-heading">Start Bootstrap </div>
           <div className="list-group list-group-flush">
-            <a
-              href="#"
-              className="list-group-item list-group-item-action bg-light"
+            <NavLink
+              to="/"
+              className="list-group-item list-group-item-action bg-light text-secondary"
             >
               Dashboard
-            </a>
-            <a
-              href="#"
-              className="list-group-item list-group-item-action bg-light"
+            </NavLink>
+            <NavLink
+              to="/"
+              className="list-group-item list-group-item-action bg-light text-secondary"
             >
               Shortcuts
-            </a>
-            <a
-              href="#"
-              className="list-group-item list-group-item-action bg-light"
+            </NavLink>
+            <NavLink
+              to="/"
+              className="list-group-item list-group-item-action bg-light text-secondary"
             >
               Overview
-            </a>
-            <a
-              href="#"
-              className="list-group-item list-group-item-action bg-light"
+            </NavLink>
+            <NavLink
+              to="/"
+              className="list-group-item list-group-item-action bg-light text-secondary"
             >
               Events
-            </a>
-            <a
-              href="#"
-              className="list-group-item list-group-item-action bg-light"
+            </NavLink>
+            <NavLink
+              to="/"
+              className="list-group-item list-group-item-action bg-light text-secondary"
             >
               Profile
-            </a>
-            <a
-              href="#"
-              className="list-group-item list-group-item-action bg-light"
+            </NavLink>
+            <NavLink
+              to="/"
+              className="list-group-item list-group-item-action bg-light text-secondary"
             >
               Status
-            </a>
+            </NavLink>
           </div>
         </div>
         <div id="page-content-wrapper">
           <nav className="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-            <button className="btn btn-primary" id="menu-toggle">
+            <button
+              className="btn btn-primary"
+              id="menu-toggle"
+              onClick={this.handlerToogleSidebar}
+            >
               Toggle Menu
             </button>
 
             <button
-            className="navbar-toggler"
+              className="navbar-toggler"
               type="button"
               data-toggle="collapse"
               data-target="#navbarSupportedContent"
@@ -62,25 +83,28 @@ export default class Layout extends Component {
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <span class="navbar-toggler-icon"></span>
+              <span className="navbar-toggler-icon"></span>
             </button>
 
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <div
+              className="collapse navbar-collapse"
+              id="navbarSupportedContent"
+            >
               <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li className="nav-item active">
-                  <a className="nav-link" href="#">
-                    Home <span class="sr-only">(current)</span>
-                  </a>
+                  <NavLink className="nav-link" to="/">
+                    Home <span className="sr-only">(current)</span>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <NavLink className="nav-link" to="/">
                     Link
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="nav-item dropdown">
-                  <a
-                  className="nav-link dropdown-toggle"
-                    href="#"
+                  <NavLink
+                    className="nav-link dropdown-toggle"
+                    to="/"
                     id="navbarDropdown"
                     role="button"
                     data-toggle="dropdown"
@@ -88,21 +112,21 @@ export default class Layout extends Component {
                     aria-expanded="false"
                   >
                     Dropdown
-                  </a>
+                  </NavLink>
                   <div
-                  className="dropdown-menu dropdown-menu-right"
+                    className="dropdown-menu dropdown-menu-right"
                     aria-labelledby="navbarDropdown"
                   >
-                    <a className="dropdown-item" href="#">
+                    <NavLink className="dropdown-item" to="/">
                       Action
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </NavLink>
+                    <NavLink className="dropdown-item" to="/">
                       Another action
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a className="dropdown-item" href="#">
+                    </NavLink>
+                    <div className="dropdown-divider"></div>
+                    <NavLink className="dropdown-item" to="/">
                       Something else here
-                    </a>
+                    </NavLink>
                   </div>
                 </li>
               </ul>
@@ -125,7 +149,7 @@ export default class Layout extends Component {
             </p>
           </div>
         </div>
-      </Wrapper>
+      </div>
     );
   }
 }
