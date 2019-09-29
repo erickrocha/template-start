@@ -22,7 +22,7 @@ export default class Layout extends Component {
     }
 
     return (
-      <div class={styles} id="wrapper">
+      <div className={styles} id="wrapper">
         <div className="bg-light border-right" id="sidebar-wrapper">
           <div className="sidebar-heading">Start Bootstrap </div>
           <div className="list-group list-group-flush">
