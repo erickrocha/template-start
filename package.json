@@ -5,7 +5,18 @@
   "dependencies": {
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
-    "react-scripts": "3.1.2"
+    "react-scripts": "3.1.2",
+    "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
+    "bootstrap": "^4.3.1",
+    "husky": "^3.0.5",
+    "lint-staged": "^9.4.0",
+    "node-sass": "^4.12.0"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "scripts": {
     "start": "react-scripts start",
