@@ -1,10 +1,9 @@
-import React, { Component, Suspense } from "react";
+import React from "react";
 import Layout from "./hoc/Layout/Layout";
 
-class App extends Component {
-  render() {
-    return <Layout />;
-  }
-}
 
+const App = () => {
+
+  return <Layout />
+}
 export default App;
